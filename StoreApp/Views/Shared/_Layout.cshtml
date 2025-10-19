@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/lib/font-awesome/css/all.css">
+</head>
+
+<body>
+    <header>
+
+        <partial name="_Navbar" />
+        @RenderSection("Header", false)
+        <!-- Burada tanımlanan RenderSection diğer sayfalarda extra bir alaneklemekistersek kullanılacak. Top sadece bir isim, false ise bu alanın zorunlu mu yoksa isteğe bağlı mı olacağını belirtmek için. false zorunlu değil anlamında. -->
+    </header>
+    <main role="main" class="pb-3">
+        <div class="container">
+            @RenderBody() <!-- İçerik bu alana gelecek-->
+        </div>
+    </main>
+    <footer class="border-top text-muted">
+
+        <partial name="_Footer" />
+
+        @RenderSection("Footer", false)
+        <!-- Bu alan da yukarıdaki gibi -->
+    </footer>
+
+
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/font-awesome/js/all.min.js"></script>
+    <script src="~/js/site.js"></script>
+    @* burada jquery ve bootstrap javascript kütüphanesini projemize ekledik *@
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <!-- Buraya da scriptlerimiz gelecek, bu kısım asenkron olarak tanmlandı 
+    öncelikli olarak yukarıdaki scriptler yüklenecek eğer varsa sayfa içinde bizim ekediğimiz 
+    scriptler gelecek -->
+</body>
+
+</html>

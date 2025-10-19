@@ -1,0 +1,59 @@
+<nav class="navbar bg-light border-bottom navbar-expand-lg bg-body-tertiary">
+  <div class="container">
+    <a class="navbar-brand" href="/"><i class="fa-solid fa-store fa-2x text-danger "></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse d-flex" id="navbarText">
+        <ul class="navbar-nav mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" asp-controller="Home" asp-action="Index">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-controller="Product" asp-action="Index">
+              <i class="fa-solid fa-list"></i>
+              Products(@await Component.InvokeAsync("ProductSummary"))
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" asp-controller="Category" asp-action="Index">
+              <i class="fa-solid fa-layer-group"></i>
+              Categories
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" asp-page="/Contact">
+              <i class="fa-solid fa-phone"></i>
+              Contact
+            </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a target="_blank" class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">
+              <i class="fa-brands fa-black-tie"></i>
+              Admin
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" asp-area="" asp-page="/cart">
+             <i class="fa-solid fa-cart-shopping"></i>
+              Cart(@await Component.InvokeAsync("CartSummary"))
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="fa-solid fa-arrow-right-from-bracket"></i>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

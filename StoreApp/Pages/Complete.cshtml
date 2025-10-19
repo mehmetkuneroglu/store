@@ -1,0 +1,19 @@
+@page
+
+<div class="text-center">
+    <h6 class="display-6">Thanks</h6>
+    <p>Thanks for placin order #@OrderId</p>
+    <p>We'll ship your goods as soon as possible.</p>
+    <a asp-controller="Home" asp-action="Index" class="btn btn-primary">Return to Store</a>
+</div>
+
+
+@* Bu yapı page model özelliği sağlayan bir yapı olarak düşünülebilir
+çünkü code behind sayfası yapmadan burada hızlıca yapmak istediğimiz işlemi 
+yapmak için backend kod bloğu oluşturuyoruz.*@
+@functions
+{
+    @* burada OrderId değerini çekip ilgili yerde göstermek için kod yazdık *@
+    [BindProperty(SupportsGet = true)]
+    public String? OrderId {get; set;}
+}

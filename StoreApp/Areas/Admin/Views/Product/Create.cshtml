@@ -1,0 +1,35 @@
+@model ProductDtoForInsertion
+
+<div class="text-center my-3">
+    <H3>Create</H3>
+</div>
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="text-danger" asp-validation-summary="All"></div>
+    <div class="mb-3">
+
+        <label class="form-label" asp-for="CategoryId">Category</label>
+        <select asp-items="@ViewBag.Categories" asp-for="CategoryId" class="form-select"></select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="ProductName"></label>
+        <input class="form-control" asp-for="ProductName">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Summary"></label>
+        <input class="form-control" asp-for="Summary">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Price"></label>
+        <input class="form-control" asp-for="Price">
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="ImageUrl"></label>
+        <input class="form-control" type="file" name="file">
+    </div>
+    <div class="my-5">
+        <button class="btn btn-outline-primary" type="submit"><i class="fa-solid fa-save"></i> Save</button>
+    <a class="btn btn-outline-danger" asp-controller="Product" asp-action="Index"><i class="fa fa-cancel"></i>
+        Cancel</a>
+    </div>
+
+</form>

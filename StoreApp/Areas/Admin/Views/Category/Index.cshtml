@@ -1,0 +1,23 @@
+@model IEnumerable<Category>
+<h1 class="my-4 text-center">Categories</h1>
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>           
+            <th>Category Name</th>          
+            <th>Process</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                
+                <td>@item.CategoryName</td>                
+                <td style="width: 150px;">
+                    <a class="btn btn-success" href="#">Edit</a>
+                    <a class="btn btn-danger" href="#">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

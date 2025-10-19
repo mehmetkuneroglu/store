@@ -1,0 +1,56 @@
+@model Order
+
+<div class="row shadow my-3">
+    <div class="col-md-3 border-1 p-3 bg-light">
+        <h5 class="text-center mb-3">
+            <i class="fa fa-address-book text-danger h1"></i>
+            <br>
+            @Model?.Name
+        </h5>
+        <p>@Model?.Line1</p>
+        <p>@Model?.Line2</p>
+        <p>@Model?.Line3</p>
+        <p>@Model?.City</p>
+        <p class="rounded-2 p-3">
+            <span class="bg-warning p-2">Shipped</span>
+            <span class="bg-info p-2">@(Model is not null && Model.Shipped? "Completed" :"In Progress")</span>
+        
+        </p>
+        
+    </div>
+    <div class="col-md-9">
+         <h5 class="display-6 text-center">
+            Cart
+        </h5>
+        <ul class="list-group mb-3 ">
+            <li class="list-group-item d-flex justify-content-between">
+                <b>Product</b>
+                <b>Quantity</b>
+                <b>Unit Price</b>
+                <b>Unit Total Price</b>
+            </li>
+            @foreach(var cartItem in Model.Lines)
+            {
+                <li class="list-group-item d-flex justify-content-between brand">
+                    <i>@cartItem.Product.ProductName</i>
+                    <span>@cartItem.Quantity</span>
+                    <span>@cartItem.Product.Price.ToString("c2")</span>
+                    <b>
+                        @((cartItem.Quantity*cartItem.Product.Price).ToString("c2"))
+                    </b>
+                </li>
+            }
+            <li class="list-group-item d-flex justify-content-between text-danger">
+                <b>Total Price</b>
+                <b>@Model.Lines.Sum(l => l.Quantity* l.Product.Price).ToString("c2")</b>
+            </li>    
+        </ul>
+         <form asp-action="Complete" method="post">
+                <input type="hidden" name="id" value="@Model.OrderId">
+                <button type="submit" class="btn btn-primary mb-3" disabled="@Model.Shipped">
+                    <i class="fa-solid fa-truck"></i>
+                    Complete
+                </button>
+        </form>
+    </div>
+</div>

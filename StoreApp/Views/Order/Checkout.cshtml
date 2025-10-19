@@ -1,0 +1,34 @@
+@model Order
+
+<h4 class="text-center mt-3">Checkout</h4>
+<div class="text-danger" asp-validation-summary="All"></div>
+<form method="post" asp-action="Checkout">
+    <div class="form-grop mb-3">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control">
+    </div>
+    <div class="form-grop mb-3">
+        <label asp-for="Line1"></label>
+        <input asp-for="Line1" class="form-control">
+    </div>
+    <div class="form-grop mb-3">
+        <label asp-for="Line2"></label>
+        <input asp-for="Line2" class="form-control">
+    </div>
+    <div class="form-grop mb-3">
+        <label asp-for="Line3"></label>
+        <input asp-for="Line3" class="form-control">
+    </div>
+    <div class="form-grop mb-3">
+        <label asp-for="City"></label>
+        <input asp-for="City" class="form-control">
+    </div>
+    <div class="form-grop mb-3">
+        <input asp-for="GiftWrap">
+        <label asp-for="GiftWrap">Gift wrap these items</label>
+    </div>
+    <div class="text-center mb-3">
+        <button type="submit" class="btn btn-primary">Complete Order</button>
+    </div>
+
+</form>

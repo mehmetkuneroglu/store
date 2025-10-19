@@ -1,0 +1,26 @@
+@model IEnumerable<Order>
+
+@* Burada öncelikle bir lojik işleteceğiz. eğer modelin count u sıfırda 
+büyük ise sipariş vardır değişse sipariş toktur. Buna göre; *@
+<h3 class="display-5 text-center">Orders</h3>
+@if(Model.Count() > 0)
+{
+    @foreach(Order order in Model)
+    {
+        <div class="my-3">
+            
+            @* Burara partial view kullanmayı tercih ettik
+            eğer bu partial view birden fazla yerde kullanılacaksa shared 
+            klasörü altında yer alabilir ancak sadece Order içinde kullanılacağı
+            için Order klasörü içinde yer alacak. *@
+
+            <partial name="_OrderDetails" model="@order" />
+        </div>
+    }
+}
+else
+{
+    <div class="alert alert-info">
+        <p class="lead">There is no order yet.</p>
+    </div>
+}
