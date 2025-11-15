@@ -3,14 +3,14 @@
 @section Footer {
     
 }
-<h1>Products</h1>
+<h1 class="my-3">Products</h1>
 <div class="row">
-    <div class="col-lg-3 px-3">
+    <div class="col-lg-2 px-3">
         @await Component.InvokeAsync("CategoriesMenu")
         @await Component.InvokeAsync("ProductFilterMenu")
         <div products="" number="6"></div>
     </div>
-    <div class="col-lg-9">
+    <div class="col-lg-10">
         <div class="row">
 
             @foreach (Product prd in Model.Products)

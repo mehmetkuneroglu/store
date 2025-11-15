@@ -8,7 +8,7 @@ namespace Entities.RequestParameters
         public bool IsValidPrice => MaxPrice > MinPrice; // Girilen fiyat aralığı geçerli mi?
         public int PageNumber { get; set; } // Sayfa numarasını tutacak
         public int PageSize { get; set; } // bir sayfada bulunacak ürün sayısını tutacak
-        public ProductRequestParameters() : this(1,6) // eğer default ctor istenirse yine aşağıdaki ctor içinedeğer alarak döndür
+        public ProductRequestParameters() : this(1,4) // eğer default ctor istenirse yine aşağıdaki ctor içinedeğer alarak döndür
         {
             
         }
